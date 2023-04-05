@@ -58,6 +58,8 @@ class MyCalculator
 
     public function __toString()
     {
-        return (string)$this->res;
+        if(isset($this->res))
+            return (string)$this->res;
+        return "Empty res";
     }
 }
