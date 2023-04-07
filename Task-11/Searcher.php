@@ -106,5 +106,19 @@ class Searcher
         }
     }
 
+    public function displayPath():void {
+        foreach ($this->path as $key=>$value) {
+            echo "Step ".$key." Value : [".$value[0]."][".$value[1]."]\n";
+        }
+    }
+
+    public function saveToFile(string $path):void {
+        file_put_contents($path, serialize($this));
+    }
+
+    public static function readFromFile(string $path): mixed
+    {
+        return unserialize(file_get_contents($path));
+    }
 
 }
